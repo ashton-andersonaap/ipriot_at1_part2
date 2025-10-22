@@ -188,13 +188,14 @@ Compare and contrast the classes Happy and Sad.
 ### 2.6. Where is the Sense(Hat) in the code?
 
 1. Which class(es) utilize the functionality of the SenseHat?
-   > Your answer here
+   > smiley.py, happy.py, sad.py, 
    >
 2. Which of these classes directly interact with the SenseHat functionalities?
-   > Your answer here
+   > smiley.py
    >
 3. Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
-   > Your answer here
+   > The senseHat is given its own class which is then utilised by smiley.py. Happy.py and sad.py also utilise sensehat
+   > but through smiley.py. this means that the only file actually accessing senshat.py is smiley.py, keeping it hidden from sad.py and happy.py
    >
 
 ### 2.7. Sad Smileys Can’t Blink (Or Can They?)
