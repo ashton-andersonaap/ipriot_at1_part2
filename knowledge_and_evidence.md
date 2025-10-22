@@ -206,22 +206,27 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 1. Does the code's author believe that every `Smiley` should be able to blink? Explain.
 
-> Your answer here
+> No because the sad.py is not a child of blinkable which is the class where the blink methods are defined
 >
 
 2. For those smileys that blink, does the author expect them to blink in the same way? Explain.
 
-> Your answer here
+> Yes because they get their methods from the blinkable class where the methods are defined
 >
 
 3. Referring to the implementation of blink in the Happy and Sad Smiley classes, give a brief explanation of what polymorphism is.
 
-> Your answer here
+> Polymorphism refers to the use of the same method names in different fucntions to execute the same command but tailored differently for each class
+> for example if blinnk was implemented in sad.py we could use:
+> for smiley in [Happy(), Sad()]:
+>   smiley.blink 
+> and both would be able to use the blink method 
 >
 
 4. How is inheritance used in the blink method, and why is it important for polymorphism?
 
-> Your answer here
+> blink is used through inheritance from the blinkable class and i simportant for polyorphism as it doesnt have to be redefined in each class
+> 
 >
 1. **Implement Blink in Sad Class:**
 
