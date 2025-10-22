@@ -144,19 +144,28 @@ python3 main.py
   
   Use the following table for your answers:
 
-| Class Name | Super or Sub? | Direct parent(s) |
-| ---------- | ------------- | ---------------- |
-| NotReal    | Sub           | NotRealParent    |
-|   ...      |   ...         |      ...         |
+| Class Name | Super or Sub? | Direct parent(s)  |
+|------------|---------------|-------------------|
+| NotReal    | Sub           | NotRealParent     |
+| Happy      | sub           | Smiley, Blinkable |
+| Sad        | sub           | Smiley            |
+| Smiley     | super         | -                 |
+| Blinkable  | super         | -                 |
+
 
 2. Explain the concept of abstraction, giving an example from the project (note "implementing an ABC" is **not** in itself an example of abstraction). (Max 150 words)
 
-> Your answer here
+> Abstraction is the process of simplifying or hiding complexity further in the code so that users do not have to interact directly wiht  
+> the more complex aspects of the code.
+> In our codebase an example of this is the complex tuples and lists being defined in smiley.py and sense_hat.py
+> which can then be used in their children classes sad and happy
 >
 
 3. What is the name of the process of deriving from base classes? What is its purpose in this project? (Max 150 words)
 
-> Your answer here
+> This process is called inheritance and its purpose in our codebase is to ensure that future classes such as happy.py and sad.py
+> can be altered and derive from the original smile.py code. This is easier than implementing the smiley.py features individually
+> and editing seperately within each class each time we want to make a change. 
 >
 
 ### 2.5. Compare and contrast classes
@@ -164,16 +173,16 @@ python3 main.py
 Compare and contrast the classes Happy and Sad.
 
 1. What is the key difference between the two classes?
-   > Your answer here
-   >
+   > Happy.py shows the mouth in an upward curve while sad.py draws the mouth in a downward curve.
+   > Happy.py also features the blinkable methods to allow the face to blink 
 2. What are the key similarities?
-   > Your answer here
+   > Both are children of smiley and utilise draw.mouth() and draw.eyes() from smiley
    >
 3. What difference stands out the most to you and why?
-   > Your answer here
+   > The fact that happy.py is also a child of blinkable allowing it to utilise the blinkable methods 
    >
 4. How does this difference affect the functionality of these classes
-   > Your answer here
+   > This difference allows happy.py to have more functionality than sad.py as it derives more methods it can use from its two parent classes
    >
 
 ### 2.6. Where is the Sense(Hat) in the code?
