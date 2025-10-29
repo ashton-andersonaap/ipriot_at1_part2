@@ -225,7 +225,7 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 4. How is inheritance used in the blink method, and why is it important for polymorphism?
 
-> blink is used through inheritance from the blinkable class and i simportant for polyorphism as it doesnt have to be redefined in each class
+> blink is used through inheritance from the blinkable class and is important for polymorphism as it means that methods used in multiple classes don't have to be redefined in each class
 > 
 >
 1. **Implement Blink in Sad Class:**
@@ -233,8 +233,12 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
    - Create a new method called `blink` within the Sad class. Ensure you use the same method signature as in the Happy class:
 
    ```python
-   def blink(self, delay=0.25):
-       pass  # Replace 'pass' with your implementation
+    def blink(self, delay=0.25):
+        self.draw_eyes(wide_open=False)
+        self.show()
+        time.sleep(delay)
+        self.draw_eyes(wide_open=True)
+        self.show()
    ```
 
 2. **Code Implementation:** Implement the code that allows the Sad smiley to blink. Use the implementation from the Happy Smiley as a reference. Ensure your new method functions similarly by controlling the blink duration through the `delay` argument.
@@ -249,7 +253,7 @@ Include a screenshot of the sad smiley or the modified `main.py`:
 
 - Observe and document the Sad smiley as it blinks its eyes. Describe any adjustments or issues encountered during implementation.
 
-  > Your answer here
+  > The smiley only blinks once when it is initially run on both the happy and sad one. I think a better implementation would be for it to continuously blink. 
 
   ### 2.8. If It Walks Like a Duck…
 
@@ -257,23 +261,23 @@ Include a screenshot of the sad smiley or the modified `main.py`:
 
   1. **Class Type Analysis:** What kind of class is `Blinkable`? Inspect its superclass for clues about its classification.
 
-     > Your answer here
+     > Using the draw eyes function and a delay. This creates the same effect as blinkable by calling the draw_eyes method with a delay inbetween to make the yes look as if they appear and dissapear, like a blink. 
 
   2. **Class Implementation:** `Blinkable` is a class intended to be implemented by other classes. What generic term describes this kind of class, which is designed for implementation by others? **Clue**: Notice the lack of any concrete implementation and the naming convention.
 
-  > Your answer here
+  > It is an abstract class
 
   3. **OO Principle Identification:** Regarding your answer to question (2), which Object-Oriented (OO) principle does this represent? Choose from the following and justify your answer in 1-2 sentences: Abstraction, Polymorphism, Inheritance, Encapsulation.
 
-  > Your answer here
+  > Abstraction. Abstraction is used to hide complexity so as the smiley and sad.py files dont need to know the complete process of blinking they can just call on blinkable which contains the complex information. 
 
   4. **Implementation Flexibility:** Explain why you could grant the Sad Smiley a blinking feature similar to the Happy Smiley's implementation, even without directly using `Blinkable`.
 
-  > Your answer here
+  > Because the same logic can be implemented elsewhere outside of the blinkable class through  the use of other methods like draw_eyes
 
   5. **Concept and Language Specificity:** In relation to your response to question (4), what is this capability known as, and why is it feasible in Python and many other dynamically typed languages but not in most statically typed programming languages like C#? **Clue** This concept is hinted at in the title of this section.
 
-  > Your answer here
+  > Polymorphism. In pyhton you dont require specific type declarations like in languages such as c# so having a happy smiley that uses blinkable and a sad smiley that uses blink() can both be called through smiley.blink() even though they dont share inheritance
 
   ***
 
@@ -286,19 +290,20 @@ Include a screenshot of the sad smiley or the modified `main.py`:
   1. **Defined Colors and Their Location:**
 
      1. Which colors are defined and in which class(s)?
-        > Your answer here
+        > WHITE, GREEN, YELLOW. RED, BLANK, in simley.py
      2. What type of variables hold these colors? Are the values expected to change during the program's execution? Explain your answer.
-        > Your answer here
+        > No the values are not expected to change as they are held as global variable RGB values at the beginning of our smiley class
      3. Add the color blue to the appropriate class using the appropriate format and values.
+        > BLUE = (0, 0, 255)
 
   2. **Usage of Color Variables:**
 
      1. In which classes are the color variables used?
-        > Your answer here
+        > They are created in smiley.py and used in happy.py and sad.py to draw the mouth and eyes 
 
   3. **Simple Method to Change Colors:**
   4. What is the easiest way you can think to change the smileys to green? Easiest, not necessarily the best!
-     > Your answer here
+     > by going into our smiley.py and changing the Y in our self.pixels to use the GREEN variable instead of yellow 
 
 
 
@@ -311,6 +316,7 @@ Include a screenshot of the sad smiley or the modified `main.py`:
   2. **Refactor subclasses to use the `complexion` method:** Modify any subclass that directly accesses the color variable to instead utilize the new `complexion` method. This ensures that color handling is centralized and can be easily modified in the future.
 
   3. **Determine the applicable Object-Oriented principle:** Consider whether Abstraction, Polymorphism, Inheritance, or Encapsulation best applies to the modifications made in this step.
+        Encapsulation. 
 
   4. **Verify the implementation:** Ensure that the modifications function as expected. The smileys should still display in yellow, confirming that the new method correctly replaces the direct color references.
 
@@ -349,5 +355,5 @@ Include a screenshot of the sad smiley or the modified `main.py`:
   3. **Ensure the Happy smiley remains yellow:** Confirm that changes to the Sad smiley do not affect the default color of the Happy smiley, which should still display in yellow.
 
   4. **Design and Implement An Angry Smiley:** Create an Angry smiley class that inherits from the `Smiley` class. Set the color of the Angry smiley to red by passing `self.RED` as the `complexion` argument in the superclass call.
-
+![Angry Smiley](screenshots/angry_smiley.png)
   ***
